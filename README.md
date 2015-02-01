@@ -35,7 +35,8 @@ powerline
 
 for me the problem was that the `VIRTUAL_ENV` env var wasn't absolute path,
 So i fixed it in my `.profile`
-```
-- export VIRTUAL_ENV="~/.virtualenv"
-+ export VIRTUAL_ENV="$HOME/.virtualenv"
+
+``` diff
+--- export VIRTUAL_ENV="~/.virtualenv"
+++++ export VIRTUAL_ENV="$HOME/.virtualenv"
 ```
