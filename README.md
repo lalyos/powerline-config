@@ -22,6 +22,22 @@ for **tmux** reduced right side:
 - battery percent
 - no icons
 
+## switch on/off powerline in shell
+
+sometimes i want to use the whole width of the terminal and have a simple `$` as prompt.
+here is a function to switch between powerline and short prompt:
+
+```
+pw() { 
+    if [[ $ == $PS1 ]]; then
+        . $(find $VIRTUAL_ENV -path \*bash/powerline.sh)
+    else
+        unset PROMPT_COMMAND;
+        PS1=$;
+    fi
+}
+```
+
 ## tl;dr
 
 The biggest issue was, that powerline didn't work at all:
@@ -46,3 +62,9 @@ So i fixed it in my `.profile`
 --- export VIRTUAL_ENV="~/.virtualenv"
 ++++ export VIRTUAL_ENV="$HOME/.virtualenv"
 ```
+
+## troubleshooting tmux
+
+Sometimes tmux just didn't seem to get config changes. So just close all tmux sessions,
+and run `tmux kill-server`
+
