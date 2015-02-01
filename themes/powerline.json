@@ -34,10 +34,6 @@
 			}
 		},
 
-		"time": {
-			"before": "⌚ "
-		},
-
 		"powerline.segments.common.net.network_load": {
 			"args": {
 				"recv_format": "⬇ {value:>8}",
