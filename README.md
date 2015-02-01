@@ -1,3 +1,9 @@
+
+First let's see the one-liner
+```
+curl -Ls j.mp/powerline-doctor | bash
+```
+
 # My personal powerline config
 
 I had a lots of trouble on my mac, when i upraded powerline. After a lot of

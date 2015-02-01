@@ -60,4 +60,4 @@ main() {
   check_virtualenv
 }
 
-[[ "$0" == "$BASH_SOURCE" ]] && main "$@"
+main
