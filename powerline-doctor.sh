@@ -20,7 +20,7 @@ install_pwl() {
 
 	backup
 	debug installing powerline version: $version
-	
+
 	pip install git+git://github.com/powerline/powerline@${version}
 	# cp -r ~/.virtualenv/lib/python2.7/site-packages/powerline/config_files/* ~/.config/powerline/
 }
@@ -28,7 +28,7 @@ install_pwl() {
 check_virtualenv() {
 	# debug "checking weather VIRTUAL_ENV variable is absolute url ..."
 
-	if [[ "${VIRTUAL_ENV:0:1}" == "~" ]]; then 
+	if [[ "${VIRTUAL_ENV:0:1}" == "~" ]]; then
 		cat <<-"EOF"
 		========================================
 		WARNING: please change your VIRTUAL_ENV
@@ -40,6 +40,17 @@ check_virtualenv() {
 		========================================
 		EOF
 	fi
+	for i in $(eval echo "$PATH|gsed \"s/:/\n/g\"")
+	do
+		if [[ "$i" =~ "~/.virtualenv" ]]; then
+			cat <<-"EOF"
+			========================================
+			WARNING: "~/.virtualenv is represented on your path. Please remove it!"
+			to make it permanent change your ~.profile or ~/.bash_profile
+			========================================
+			EOF
+		fi
+	done
 }
 
 get_config() {
