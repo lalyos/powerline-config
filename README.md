@@ -40,6 +40,15 @@ pw() {
 
 ## tl;dr
 
+Make sure your profile has the language settings `LC_ALL` and `LANG`
+```
+export LC_ALL=en_US.UTF-8                                                                                       export LANG=en_US.UTF-8
+export PIP_REQUIRE_VIRTUALENV=true
+export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
+export VIRTUAL_ENV="$HOME/.virtualenv"
+export PATH="$PATH:~/apps/bin"
+```
+
 The biggest issue was, that powerline didn't work at all:
 
 ```
