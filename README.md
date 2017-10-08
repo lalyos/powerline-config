@@ -29,11 +29,12 @@ here is a function to switch between powerline and short prompt:
 
 ```
 pw() { 
-    if [[ $ == $PS1 ]]; then
-        . $(find $VIRTUAL_ENV -path \*bash/powerline.sh)
+    if grep powerline -q <<< "$PROMPT_COMMAND"; then
+        unset PROMPT_COMMAND
+        PS1=${PS1_ORIG:-$}
     else
-        unset PROMPT_COMMAND;
-        PS1=$;
+	PS1_ORIG="$PS1"
+        . $(find $VIRTUAL_ENV -path \*bash/powerline.sh)
     fi
 }
 ```
